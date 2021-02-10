@@ -12,9 +12,9 @@ namespace BasicServerHTTPlistener
         System.Net.WebHeaderCollection headers;
         Header() { }
 
-        public Header(NameValueCollection headers)
+        public Header(System.Net.WebHeaderCollection headers)
         {
-            this.headers = (System.Net.WebHeaderCollection) headers;
+            this.headers = headers;
         }
 
         public String Display_Accept()

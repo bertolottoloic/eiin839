@@ -56,7 +56,7 @@ namespace BasicServerHTTPlistener
                 // Note: The GetContext method blocks while waiting for a request.
                 HttpListenerContext context = listener.GetContext();
                 HttpListenerRequest request = context.Request;
-                Header headers = new Header(request.Headers);
+                Header headers = new Header((System.Net.WebHeaderCollection) request.Headers);
                 
                 Console.WriteLine(headers.Display_Accept());
                 Console.WriteLine(headers.Display_AcceptCharset());
