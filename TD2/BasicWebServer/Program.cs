@@ -1,5 +1,8 @@
-﻿using System;
+﻿
+using BasicWebServer;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -85,31 +88,37 @@ namespace BasicServerHTTPlistener
                 Console.WriteLine(request.Url.Port);
                 //get path in url 
                 Console.WriteLine(request.Url.LocalPath);
-
+                string[] seg = request.Url.Segments;
+                Array.Reverse(seg);
                 // parse path in url 
-                foreach (string str in request.Url.Segments)
+                foreach (string str in seg)
                 {
                     Console.WriteLine(str);
                 }
 
                 //get params un url. After ? and between &
 
-                Console.WriteLine(request.Url.Query);
+                //Console.WriteLine(request.Url.Query);
 
                 //parse params in url
-                Console.WriteLine("param1 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param1"));
+                /*Console.WriteLine("param1 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param1"));
                 Console.WriteLine("param2 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param2"));
                 Console.WriteLine("param3 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param3"));
-                Console.WriteLine("param4 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param4"));
+                Console.WriteLine("param4 = " + HttpUtility.ParseQueryString(request.Url.Query).Get("param4"));*/
 
                 //
                 Console.WriteLine(documentContents);
+
+                Console.WriteLine(Program.output(request.Url.Segments, request.Url.Query,0));
+
 
                 // Obtain a response object.
                 HttpListenerResponse response = context.Response;
 
                 // Construct a response.
-                string responseString = "<HTML><BODY> Hello world!</BODY></HTML>";
+                //string responseString = new MyMethods(request).MyMethod(); ques 4
+                string responseString = ResponseProcess.Response(request);
+                
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
                 // Get a response stream and write the response to it.
                 response.ContentLength64 = buffer.Length;
@@ -120,6 +129,17 @@ namespace BasicServerHTTPlistener
             }
             // Httplistener neither stop ... But Ctrl-C do that ...
             // listener.Stop();
+        }
+
+
+        //Answer ques 2
+        public static string output(string[] seg, string query, int n)
+        {
+            if (n == seg.Length-1) return "\n<p>\n" + seg[n] + "\n<p>\n" + HttpUtility.ParseQueryString(query).Get("param1") + " "
+                      + HttpUtility.ParseQueryString(query).Get("param2") + " "
+                      + HttpUtility.ParseQueryString(query).Get("param3") + " "
+                      + HttpUtility.ParseQueryString(query).Get("param4") + "\n</p>" + "\n</p>\n";
+            else return "\n<p>\n" + seg[n] + " " + output(seg, query, n + 1) + "\n</p>\n";
         }
     }
 }
