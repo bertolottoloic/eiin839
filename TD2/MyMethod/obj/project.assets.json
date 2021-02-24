@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\eiin839\\TD2\\MyMethod\\MyMethod.csproj",
+      "projectUniqueName": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\bis\\eiin839\\TD2\\MyMethod\\MyMethod.csproj",
       "projectName": "MyMethod",
-      "projectPath": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\eiin839\\TD2\\MyMethod\\MyMethod.csproj",
+      "projectPath": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\bis\\eiin839\\TD2\\MyMethod\\MyMethod.csproj",
       "packagesPath": "C:\\Users\\kynor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\eiin839\\TD2\\MyMethod\\obj\\",
+      "outputPath": "C:\\Users\\kynor\\Documents\\Cours\\SI4\\SOC\\bis\\eiin839\\TD2\\MyMethod\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
