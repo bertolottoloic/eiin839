@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Net.Http.Json;
+using System.Text.Json;
+using ProjetTD3;
 
 namespace Ques1
 {
@@ -14,11 +14,9 @@ namespace Ques1
             HttpClient http = new HttpClient();
             try
             {
-                HttpResponseMessage response = await http.GetAsync("https://api.jcdecaux.com/vls/v3/stations?apiKey=bcf8e0014e5509ec4e4238d062207b525253b599");
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine(responseBody);
+                System.Collections.Generic.List < Contract > contracts = await http.GetFromJsonAsync<System.Collections.Generic.List<Contract>>("https://api.jcdecaux.com/vls/v3/contracts?apiKey=bcf8e0014e5509ec4e4238d062207b525253b599");
+                Console.WriteLine(contracts[0].Cities[0]);
                 Console.ReadLine();
             }
             catch (HttpRequestException e)
