@@ -10,19 +10,19 @@ namespace MathsLibrary
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" à la fois dans le code et le fichier de configuration.
     public class MathsOperations : IMathsOperations
     {
-        public int Add(int a, int b)
+        public long Add(long x, long y)
         {
-            return a + b;
+            return x + y;
         }
 
-        public int Multiply(int a, int b)
+        public long Multiply(long x, long y)
         {
-            return a * b;
+            return x * y;
         }
 
-        public int Substract(int a, int b)
+        public long Substract(long x, long y)
         {
-            return a - b;
+            return x - y;
         }
     }
 }

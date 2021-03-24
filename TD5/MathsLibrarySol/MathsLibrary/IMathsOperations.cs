@@ -14,13 +14,16 @@ namespace MathsLibrary
     public interface IMathsOperations
     {
         [OperationContract]
-        int Add(int a, int b);
+        [WebInvoke(Method = "GET", UriTemplate = "Add?x={x}&y={y}")]
+        long Add(long x, long y);
 
         [OperationContract]
-        int Multiply(int a, int b);
+        [WebInvoke(Method = "GET", UriTemplate = "Multiple?x={x}&y={y}")]
+        long Multiply(long x, long y);
 
         [OperationContract]
-        int Substract(int a, int b);
+        [WebInvoke(Method = "GET", UriTemplate = "Substract?x={x}&y={y}")]
+        long Substract(long x, long y);
 
         /*[OperationContract]
         int Divide(int a, int b);*/
