@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WSSOAP.ServiceReference1;
+using WSSOAP.ServiceReference2;
 
 namespace WSSOAP
 {
@@ -11,7 +11,7 @@ namespace WSSOAP
     {
         static void Main(string[] args)
         {
-            CalculatorSoapClient calculator = new CalculatorSoapClient();
+            IMathsOperations calculator = new MathsOperationsClient();
             Console.WriteLine(calculator.Add(3, 12));
             Console.ReadLine();
         }
